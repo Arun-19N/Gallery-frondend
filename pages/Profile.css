@@ -1,0 +1,189 @@
+.imgeditpart{
+    background-color: rgb(190, 181, 181);
+    padding: 30px;
+    width: fit-content;
+    max-width: 90vw; /* Prevent container from being too wide */
+    max-height: 90vh; /* Prevent container from being too tall */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto; /* Allow scrolling if content overflows */
+    box-sizing: border-box; /* Include padding in dimensions */
+    border-radius: 8px; /* Optional: for better appearance */
+}
+
+.imgeditpart img{
+    max-width: 100%; /* Crucial: prevent horizontal overflow */
+    max-height: 70vh; /* Limit image height */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto 20px;
+    object-fit: contain; /* Ensure image fits nicely */
+}
+
+.hideedit{
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1; /* Ensure it stays above other content */
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    background-color: gray;
+    min-height: 100%;
+}
+
+.showimg__container{
+    margin: 5px;
+    width: 100%;
+}
+
+.add__img__icon .add__img__icon__inner{
+    width: 40px;
+    height: auto;
+}
+.add__img__icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.add__img__icon:hover {
+    transform: scale(1.05);
+}
+
+/* Improved Media Queries */
+@media screen and (max-width: 1024px) {
+    .imgeditpart img{
+        max-height: 55vh;
+    }
+    
+}
+
+@media screen and (max-width: 760px) {
+    .imgeditpart img{
+        max-height: 50vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .profile-container {
+        width: 100%;
+        min-height: auto;
+    }
+   
+    .add__img__icon{
+        width: 40px;
+        height: 40px;
+        font-size: 15px !important;
+    }
+    
+    .add__img__icon__inner{
+        font-size: 15px !important;
+    }
+    
+    .imgeditpart {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .imgeditpart{
+        padding: 20px;
+        max-width: 95vw; /* Even more restrictive on small screens */
+    }
+    
+    .imgeditpart img{
+        max-height: 45vh;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .imgeditpart img{
+        max-height: 40vh;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .imgeditpart{
+        padding: 15px;
+        border-radius: 10px;
+          top: 45%;
+    }
+    
+    .imgeditpart img{
+        max-height: 35vh;
+    }
+    
+    .imgeditpart button{
+        font-size: 14px;
+        padding: 8px 12px; /* Better touch targets */
+        margin: 2px;
+    }
+   
+    .hideedit{
+        top: 2px;
+        right: 15px;
+        font-size: 1.5rem !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .imgeditpart{
+        padding: 12px;
+        top: 45%;
+    }
+    
+    .imgeditpart img{
+        max-height: 40vh;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+    .imgeditpart img{
+        max-height: 10vh;
+    }
+    
+    .imgeditpart {
+        padding: 10px;
+    }
+    
+    .imgeditpart button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+/* Button styling improvements */
+.imgeditpart button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.imgeditpart button:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}

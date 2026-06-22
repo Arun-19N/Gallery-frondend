@@ -1,0 +1,24 @@
+.image-card{
+    background-color:lightgrey;
+    height:fit-content;
+    border-radius: 5px;
+}
+
+.image-card h5,p{
+   background-color: white;
+   margin-top: 5px;
+   /* margin-bottom: 0px !important; */
+}
+
+@media screen and (max-width: 460px){
+    .image-card{
+    background-color:lightgrey;
+    height:fit-content;
+    border-radius: 5px;
+    width: 100px;
+}
+ .image-card img{
+   
+    width: 100px;
+}
+} 

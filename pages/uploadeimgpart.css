@@ -1,0 +1,28 @@
+.ploadeuseimg__part{
+    width: 100%;
+}
+
+.img__up__form__container form{
+    display: flex;
+    flex-direction: column;
+    /* background-color: aquamarine; */
+    width: 60%;
+}
+.img__up__form__container__input{
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid gray;
+    
+}
+.img__up__form__container__input:focus{
+    outline: none;
+    /* border-bottom: 2px solid blue; */
+}
+
+input[type="file"]::-webkit-file-upload-text {
+  visibility: hidden;
+}
+
+.Preview__img__uplode{
+    max-width: 100%;
+}
