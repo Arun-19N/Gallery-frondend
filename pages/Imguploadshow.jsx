@@ -5,7 +5,7 @@ import './Imguploadshow.css';
 const MyImages = () => {
   const [images, setImages] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedImg, setSelectedImg] = useState(null); // ✅ Add this
+  const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -29,19 +29,25 @@ const MyImages = () => {
     <>
       <div>
         {/* Image grid */}
-        <div className="text-center  d-flex justify-content-center gap-4" style={{ display: 'flex', flexWrap: 'wrap',  }}>
+        <div
+          className="text-center d-flex justify-content-center gap-4"
+          style={{ display: 'flex', flexWrap: 'wrap' }}
+        >
           {images.map(img => (
-            <div className='image-card' key={img._id} style={{ border: '1px solid #ccc' }}>
+            <div className="image-card" key={img._id} style={{ border: '1px solid #ccc' }}>
               <img
-                src={`http://localhost:5000${img.imageUrl}`}
+                // ✅ FIX: Cloudinary URLs are already complete (https://res.cloudinary.com/...).
+                // Previously this was prefixed with http://localhost:5000, which only worked
+                // for the old local-disk relative paths and broke the URL for Cloudinary links.
+                src={img.imageUrl}
                 alt={img.title}
                 width="200"
                 style={{ cursor: 'pointer' }}
-                onClick={() => setSelectedImg(`http://localhost:5000${img.imageUrl}`)}
+                onClick={() => setSelectedImg(img.imageUrl)}
               />
               <div className="pt-1 px-1 mb-1">
-              <h5>{img.title}</h5>
-              <p>{img.description}</p>
+                <h5>{img.title}</h5>
+                <p>{img.description}</p>
               </div>
             </div>
           ))}
@@ -62,7 +68,7 @@ const MyImages = () => {
               justifyContent: 'center',
               alignItems: 'center',
               zIndex: 1000,
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
           >
             <img src={selectedImg} alt="Full Size" style={{ maxHeight: '90%', maxWidth: '90%' }} />
